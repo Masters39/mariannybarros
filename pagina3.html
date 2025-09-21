@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body {
+            background: url("fotos/fundo.jpg") no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+             color: #f00d0d; /* branco */
+  text-shadow: 4px 4px 8px rgba(0,0,0,0.8); /* sombra preta */
+  font-weight: bold;
+            text-align: center;
+        }
+
+        .carousel-container {
+            width: 90%;
+            max-width: 300px; /* Ajuste este valor se quiser o carrossel menor ou maior */
+            overflow: hidden;
+            position: relative;
+            margin: 20px auto;
+            padding-bottom: 150%; /* Proporção de retrato para as imagens */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .carousel-track {
+            display: flex;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        #site-content {
+            margin-top: 20px;
+            padding: 0 20px;
+        }
+        
+        #site-content h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        #site-content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px #000000;
+            margin-bottom: 30px;
+        }
+
+        #backBtn {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #ff0000; /* Cor vermelha para o botão de voltar */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s;
+        }
+
+        #backBtn:hover {
+            background-color: #cc0000;
+        }
+
+      </style>
+</head>
+<body>
+
+    <div class="carousel-container">
+        <div class="carousel-track">
+            <div class="slide active">
+                <video src="fotos/foto3.mp4">
+            </div>
+            <div class="slide">
+                <video src="fotos/foto33.mp4">
+            </div>
+            <div class="slide">
+                <video src="fotos/foto333.mp4">
+            </div>
+        </div>
+    </div>
+<div id="site-content">
+        <button id="music-control" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; padding: 10px; background-color: #333; color: white; border: none; border-radius: 50%; cursor: pointer;">
+    🎵
+</button>
+
+<audio id="background-music" loop>
+    <source src="fotos/3.mp3" type="audio/mpeg">
+    Seu navegador não suporta o elemento de áudio.
+</audio>
+    <div id="site-content">
+        <h1>MINHA NEGONA</h1>
+    <p>
+        Chegou a vez do nome que eu mais amo neste mundo. De todos os apelidos que te dou, este é sempre o melhor e o que eu vou mais usar contigo. Eu sei que te irrita, mas também traz lembranças boas, lembranças fantásticas do dia em que a gente se conheceu ainda mais. A cada segundo que passava, eu via a pessoa brincalhona, zangada e gentil que eu conheci e escolhi, e que vou continuar a escolher todos os dias.
+    </p>
+    <p>
+        Conheci essa pessoa gentil que ama crianças e ainda tem o mesmo sonho que o meu: ter uma família com gêmeos. Assim que você me falou isso, eu fiquei em êxtase, porque eu sempre quis ter gêmeos e encontrei você, que também quer. Fico todos os dias falando que eu tenho que me casar contigo, porque você é minha alma gêmea. Não sei como, mas sinto que tudo o que aconteceu na minha vida me levou até você, me levou a te conhecer.
+    </p>
+    <p><strong>MINHA NEGONA MARROM BOMBOM</strong></p>
+        <button id="backBtn">VOLTAR</button>
+    </div>
+
+    <script>
+        // SCRIPT DO CARROSSEL
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+            });
+            slides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 12000); // Passa para a próxima imagem a cada 3 segundos
+
+        // SCRIPT DO BOTÃO DE VOLTAR
+        const backButton = document.getElementById('backBtn');
+        backButton.addEventListener('click', () => {
+            window.location.href = "site.html"; // Volta para a página anterior
+        });
+        const music = document.getElementById('background-music');
+    const musicControlBtn = document.getElementById('music-control');
+
+    musicControlBtn.addEventListener('click', () => {
+        if (music.paused) {
+            music.play();
+            musicControlBtn.textContent = '⏸';
+        } else {
+            music.pause();
+            musicControlBtn.textContent = '🎵';
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body {
+            background: url("fotos/fundo.jpg") no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+             color: #f00d0d; /* branco */
+  text-shadow: 4px 4px 8px rgba(0,0,0,0.8); /* sombra preta */
+  font-weight: bold;
+            text-align: center;
+        }
+
+        .carousel-container {
+            width: 90%;
+            max-width: 300px; /* Ajuste este valor se quiser o carrossel menor ou maior */
+            overflow: hidden;
+            position: relative;
+            margin: 20px auto;
+            padding-bottom: 150%; /* Proporção de retrato para as imagens */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .carousel-track {
+            display: flex;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        #site-content {
+            margin-top: 20px;
+            padding: 0 20px;
+        }
+        
+        #site-content h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        #site-content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px #000000;
+            margin-bottom: 30px;
+        }
+
+        #backBtn {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #ff0000; /* Cor vermelha para o botão de voltar */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s;
+        }
+
+        #backBtn:hover {
+            background-color: #cc0000;
+        }
+
+      </style>
+</head>
+<body>
+
+    <div class="carousel-container">
+        <div class="carousel-track">
+            <div class="slide active">
+                <img src="fotos/foto111.jpg" />
+            </div>
+            <div class="slide">
+                <img src="fotos/fotos11.jpg" />
+            </div>
+            <div class="slide">
+                <img src="fotos/fotos1.jpg" />
+            </div>
+        </div>
+    </div>
+<div id="site-content">
+        <button id="music-control" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; padding: 10px; background-color: #333; color: white; border: none; border-radius: 50%; cursor: pointer;">
+    🎵
+</button>
+
+<audio id="background-music" loop>
+    <source src="fotos/1.mp3" type="audio/mpeg">
+    Seu navegador não suporta o elemento de áudio.
+</audio>
+    <div id="site-content">
+        <h1>CARTA ABERTA</h1>
+        <p>
+            AMOR DA MINHA VIDA É ISSO O QUE VOCÊ É PARA MIM. SIMPLESMENTE EM TÃO POUCO TEMPO<br>
+            MAS NÃO VEJO MEU FUTURO SEM VOCÊ LITERALMENTE TUDO O QUE EU FAÇO É PENSAR EM VOCÊ<br>
+            NAS PEQUENAS COISAS E NAS GRANDES, EU PENSO EM COMPRAR UMA CASA COM PISCINA POR CAUSA DE VOCÊ,<br>
+            EU PENSO EM VOCÊ E O QUE ME VEM É QUERER FICAR AGARRADO O DIA INTEIRO, SIMPLESMENTE ESTOU<br>
+            COMPLETAMENTE APAIXONADO NO SEU JEITO E EM TUDO QUE VOCÊ É, E NÃO QUERO QUE ACABE NUNCA,<br>
+            EU AMO O QUE A GENTE É, AMO CONVERSAR COM VOCÊ E AMO VER SEU SORRISO TODOS OS DIAS,<br>
+            E ESSAS FOTOS SÓ MOSTRAM O QUÃO AUTÊNTICA VOCÊ É,<br>
+            O QUÃO PERFEITA E DESLUMBRANTE CONSEGUE SER MESMO COM A UNHA QUEBRADA,<br>
+            OU DISTRAÍDA NO CELULAR, SIMPLESMENTE TUDO EM VOCÊ E TODOS OS JEITOS,<br>
+            FAZ COM QUE EU ME APAIXONE DE TODOS OS JEITOS POR VOCÊ MEU AMOR!
+        </p>
+        <button id="backBtn">VOLTAR</button>
+    </div>
+
+    <script>
+        // SCRIPT DO CARROSSEL
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+            });
+            slides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 6000); // Passa para a próxima imagem a cada 3 segundos
+
+        // SCRIPT DO BOTÃO DE VOLTAR
+        const backButton = document.getElementById('backBtn');
+        backButton.addEventListener('click', () => {
+            window.location.href = "site.html"; // Volta para a página anterior
+        });
+        const music = document.getElementById('background-music');
+    const musicControlBtn = document.getElementById('music-control');
+
+    musicControlBtn.addEventListener('click', () => {
+        if (music.paused) {
+            music.play();
+            musicControlBtn.textContent = '⏸';
+        } else {
+            music.pause();
+            musicControlBtn.textContent = '🎵';
+        }
+    });
+    </script>
+</body>
+</html>

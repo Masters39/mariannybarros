@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MULHER INCRIVELS</title>
+       <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+  padding: 0;
+  background: url("fotos/REMOVER O PESSOAL 1.jpg") no-repeat center center fixed;
+  background-size: cover; /* faz a imagem cobrir toda a tela */
+  font-family: Arial, sans-serif;
+    }
+
+    /* Tela de boas-vindas (popup) */
+    #welcome-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+#amor{
+      color: #ffffff; /* branco */
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.8); /* sombra preta */
+  font-weight: bold;
+}
+    #welcome-box {
+      background: #fff;
+      padding: 20px;
+      text-align: center;
+      border-radius: 15px;
+      max-width: 400px;
+      box-shadow: 0 0 25px rgba(255, 0, 150, 0.7);
+    }
+
+    #welcome-box img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    #close-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #ff0077;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #close-btn:hover {
+      background: #d60063;
+    }
+
+    /* Conteúdo do site */
+    #site-content {
+      display: none; /* escondido até fechar o popup */
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+   <!-- Popup de boas-vindas -->
+  <div id="welcome-popup">
+    <div id="welcome-box">
+      <img src="fotos/images.jpg" alt="Surpresa"> <!-- Coloque a foto dela aqui -->
+      <p>Bem-vinda, amor ❤️</p>
+      <button id="close-btn">Entrar no site</button>
+    </div>
+  </div>
+
+  <!-- Conteúdo do site -->
+  <div id="site-content">
+    <h1 id="amor">Agora sim, o site está liberado 🎉</h1>
+    <p id="amor">ESCOLHAS AS OPÇÕES ABAIXO E VEJA<br>CADA OPÇÃO ABAIXO TEM UM CAMINHO DIFERENTE</p>
+    <LABEl id="amor">QUAL SEU NOME COMPLETO:</LABEl>
+    <SELEct>
+        <option value="">APERTE PARA SELECIONAR AS OPÇÕES</option>
+        <option value="1">AMOR DA MINHA VIDA🥰</option>
+         <option value="2">MINHA PRINCESA👸</option>
+         <option value="3">MINHA NEGONA 🩷🩷</option>
+         <option value="4">MARIANNY BARROS RODRIGUES 🥹</option>
+    </SELEct>
+    <BR></BR>
+    <LAbel id="amor">QUAL SUA IDADE</LAbel>
+    <SELECt>
+       <option value="">APERTE PARA SELECIONAR AS OPÇÕES</option>
+       <option value="5">23 anos</option>
+       <option value="6">12 anos</option>
+       <option value="7">25 anos</option>
+       <option value="8">21 anos</option>
+    </SELECt>
+      <BR></BR>
+      <BUTton id="amor" value="enviar">ENVIAR</BUTton>
+  </div>
+
+  <script>
+    document.getElementById("close-btn").addEventListener("click", function() {
+      document.getElementById("welcome-popup").style.display = "none";
+      document.getElementById("site-content").style.display = "block";
+    });
+     document.querySelector("button#amor").addEventListener("click", function () {
+    // pega os valores dos selects
+    let nome = document.querySelectorAll("select")[0].value;
+    let idade = document.querySelectorAll("select")[1].value;
+
+    // combinação 1 → Amor da minha vida + 23 anos
+    if (nome === "1" && idade === "5") {
+      window.location.href = "pagina1.html"; // redireciona
+    }
+
+    // combinação 2 → Minha princesa + 12 anos
+    else if (nome === "2" && idade === "6") {
+      window.location.href = "pagina2.html"; // redireciona
+    }
+
+    // combinação 3 → Minha negona + 25 anos
+    else if (nome === "3" && idade === "7") {
+      window.location.href = "pagina3.html"; // redireciona
+    }
+
+    // combinação 4 → Marianny Barros Rodrigues + 21 anos
+    else if (nome === "4" && idade === "8") {
+      window.location.href = "pagina4.html"; // redireciona
+    }
+
+    // qualquer outra opção → erro
+    else {
+      alert("Ops! Você selecionou errado 😅 Tente de novo, amor!");
+    }
+});
+  </script>
+</body>
+</html>

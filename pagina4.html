@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body {
+            background: url("fotos/fundo.jpg") no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+             color: #f00d0d; /* branco */
+  text-shadow: 4px 4px 8px rgba(0,0,0,0.8); /* sombra preta */
+  font-weight: bold;
+            text-align: center;
+        }
+
+        .carousel-container {
+            width: 90%;
+            max-width: 300px; /* Ajuste este valor se quiser o carrossel menor ou maior */
+            overflow: hidden;
+            position: relative;
+            margin: 20px auto;
+            padding-bottom: 150%; /* Proporção de retrato para as imagens */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .carousel-track {
+            display: flex;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        #site-content {
+            margin-top: 20px;
+            padding: 0 20px;
+        }
+        
+        #site-content h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        #site-content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px #000000;
+            margin-bottom: 30px;
+        }
+
+        #backBtn {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #ff0000; /* Cor vermelha para o botão de voltar */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s;
+        }
+
+        #backBtn:hover {
+            background-color: #cc0000;
+        }
+
+      </style>
+</head>
+<body>
+
+    <div class="carousel-container">
+        <div class="carousel-track">
+            <div class="slide active">
+                <img src="fotos/foto4.jpg">
+            </div>
+            <div class="slide">
+                 <img src="fotos/foto44.jpg">
+            </div>
+            <div class="slide">
+                 <img src="fotos/foto444.jpg">
+            </div>
+        </div>
+    </div>
+<div id="site-content">
+        <button id="music-control" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; padding: 10px; background-color: #333; color: white; border: none; border-radius: 50%; cursor: pointer;">
+    🎵
+</button>
+
+<audio id="background-music" loop>
+    <source src="fotos/4.mp3" type="audio/mpeg">
+    Seu navegador não suporta o elemento de áudio.
+</audio>
+    <div id="site-content">
+        <h1>MARIANNY BARROS RODRIGUES</h1>
+    <p>
+        Acho que para essa pessoa não tenho palavras suficientes para descrever o que eu sinto. Você é a primeira pessoa na minha vida que consegue me deixar sem palavras, a pessoa que me faz querer ser melhor todos os dias. Você cuida de mim, e eu quero cuidar de você em tudo que eu conseguir. Eu amo todas as suas personalidades, amo estar contigo, conversar e ser assim. Você tem a melhor parte de mim que ninguém mais tem.
+    </p>
+    <p>
+        Nunca fui bom com palavras, nunca gostei de falar muito, mas perto de você eu sempre quero me expressar. É tão fácil falar de você, falar de quão linda você é, de quão maravilhosa, de quão gentil você consegue ser. Consigo ver o coração enorme que você tem, que ama crianças e tem o sonho de ser mãe. Vejo que realmente vale a pena ficar ao seu lado. Nessa geração em que tudo está quase se destruindo, existe você: uma mulher incrível e rara de se encontrar, que tem visão de futuro e ama ficar com crianças.
+    </p>
+    <p>
+        Tudo isso em você só me faz me apaixonar cada vez mais e ter certeza de que faço a escolha certa ao falar para todo mundo que você é minha namorada, meu futuro e o amor da minha vida. Você não é só a Marianny, é a mulher dos meus sonhos e com quem eu quero passar o resto da minha vida.
+    </p>
+    <p>
+        Você é a mulher de 23 anos (quando te conheci achei que tinha essa idade), a mulher de 12 (que eu conheci quando te levei ao Beach Park e vi sua criança interior), a mulher de 25 (que odeia ser chamada de Negona, mesmo que agora seja um apelido carinhoso) e a mulher de 21 anos (que é 3 anos mais velha que eu). Mas, em tudo isso, eu só quero que você saiba que estarei sempre ao seu lado, seja em momentos bons ou ruins. Eu quero você e quero ser seu para todo o sempre, princesa.
+    </p>
+    <p>
+        Para mim, hoje você é e sempre vai ser o amor da minha vida, com quem eu quero compartilhar todos os momentos. Saiba que sempre poderá contar comigo, meu amor. Mesmo de longe, um dia eu quero comprar nossa casa, mobiliar ela inteira e, todos os dias, ir para a piscina e fazer academia juntos. Ter nossa rotina e saber que quando voltar para casa terei alguém me esperando para ter um jantar romântico ou ficar assistindo a uma série ou filme que você goste.
+    </p>
+    <p>
+        Não sei se estou indo rápido demais nas coisas, se estou pensando demais, porque eu não era assim até te conhecer. Eu não demonstrava o que sentia. Mas, contigo, as palavras fluem como um simples soneto.
+    </p>
+    <blockquote>
+        “O amor não se vê com os olhos, mas com o coração.”
+    </blockquote>
+    <p>
+        E como eu sou um cara de sorte! Tenho a sorte de ver o amor tanto com os olhos quanto com o coração em uma única pessoa. Eu sou o cara mais sortudo deste mundo, porque eu conheci você, minha princesa e dona do meu coração!
+    </p>
+        <button id="backBtn">VOLTAR</button>
+    </div>
+
+    <script>
+        // SCRIPT DO CARROSSEL
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+            });
+            slides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 12000); // Passa para a próxima imagem a cada 3 segundos
+
+        // SCRIPT DO BOTÃO DE VOLTAR
+        const backButton = document.getElementById('backBtn');
+        backButton.addEventListener('click', () => {
+            alert("AINDA QUERO ENCHER MINHA GALERIA DE FOTOS SUAS MEU AMOR") // Volta para a página anterior
+       window.location.href = "site.html";
+        });
+        const music = document.getElementById('background-music');
+    const musicControlBtn = document.getElementById('music-control');
+
+    musicControlBtn.addEventListener('click', () => {
+        if (music.paused) {
+            music.play();
+            musicControlBtn.textContent = '⏸';
+        } else {
+            music.pause();
+            musicControlBtn.textContent = '🎵';
+        }
+    });
+    </script>
+</body>
+</html>
